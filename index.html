@@ -1,131 +1,92 @@
-<style>
-  :root {
-    --primary: #2d3436;
-    --accent: #0984e3;
-    --bg: #f5f6fa;
-  }
-  body {
-    background-color: var(--bg);
-    color: var(--primary);
-    font-family: 'Inter', -apple-system, sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .container {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    max-width: 800px;
-    width: 90%;
-    display: grid;
-    grid-template-columns: 1fr 250px; /* Aquí creamos el espacio para Eren al lado */
-    gap: 30px;
-    position: relative;
-  }
-  .info-section h1 {
-    font-size: 2.2rem;
-    margin-top: 0;
-    color: var(--accent);
-  }
-  .profile-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border-left: 2px solid #eee;
-    padding-left: 20px;
-  }
-  .profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 15px;
-    object-fit: cover;
-    border: 4px solid var(--accent);
-    box-shadow: 0 5px 15px rgba(9, 132, 227, 0.2);
-  }
-  .badge {
-    background: var(--accent);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  h2 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid var(--accent);
-    display: inline-block;
-    margin-bottom: 15px;
-  }
-  ul, ol {
-    list-style: none;
-    padding: 0;
-  }
-  li {
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    align-items: center;
-  }
-  li::before {
-    content: "•";
-    color: var(--accent);
-    font-weight: bold;
-    margin-right: 10px;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja de Vida - Emanuel</title>
+    <style>
+      :root { --primary: #2d3436; --accent: #0984e3; --bg: #f5f6fa; }
+      body {
+        background-color: var(--bg);
+        color: var(--primary);
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        max-width: 800px;
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        gap: 30px;
+      }
+      .info-section h1 { font-size: 2.2rem; margin-top: 0; color: var(--accent); }
+      .profile-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-left: 2px solid #eee;
+        padding-left: 20px;
+      }
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 15px;
+        object-fit: cover;
+        border: 4px solid var(--accent);
+      }
+      .badge {
+        background: var(--accent);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      h2 {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+      ul, ol { list-style: none; padding: 0; }
+      li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+      li::before { content: "•"; color: var(--accent); margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="info-section">
+            <h1>Información Personal</h1>
+            <p><strong>Nombre:</strong> Emanuel David Perez Olaya</p>
+            <p><strong>Semestre:</strong> 2026-1</p>
+            
+            <h2>Mis Hobbies</h2>
+            <ul>
+                <li>Futbol</li><li>Musica</li><li>Gimnasio</li><li>Gaming</li><li>Viajes</li><li>Cine</li>
+            </ul>
 
-<div class="container">
-  <div class="info-section">
-    <h1>Información Personal</h1>
-    <p><strong>Nombre:</strong> Emanuel</p>
-    <p><strong>Semestre:</strong> 2026-1</p>
-    
-    <h2>Mis Hobbies</h2>
-    <ul>
-      <li>Futbol</li><li>Musica</li><li>Gimnasio</li><li>Gaming</li><li>Viajes</li><li>Cine</li>
-    </ul>
+            <h2>Series Favoritas</h2>
+            <ol>
+                <li>Breaking Bad</li><li>Stranger Things</li><li>Dark</li><li>The Boys</li><li>One Piece</li>
+            </ol>
+        </div>
 
-    <h2>Series Favoritas</h2>
-    <ol>
-      <li>Breaking Bad</li><li>Stranger Things</li><li>Dark</li><li>The Boys</li><li>One Piece</li>
-    </ol>
-  </div>
-
-  <div class="profile-box">
-    <img src="https://media1.tenor.com/m/1rXY1KhLvzAAAAAd/eren.gif" class="profile-img" alt="Emanuel Profile">
-    <div class="badge">ESTUDIANTE PRO</div>
-    <p style="font-size: 0.8rem; color: #636e72; text-align: center; margin-top: 10px;">
-      "El que no arriesga, no gana"
-    </p>
-  </div>
-</div>
-
-
-<h1>Informacion Estudiante</h1>
-<p>Nombre: Emanuel</p>
-<p>Semestre: 2026-1</p>
-<h2>Mis Hobbies</h2><ul>
-<li>Futbol</li>
-<li>Musica</li>
-<li>Gimnasio</li>
-<li>Gaming</li>
-<li>Viajes</li>
-<li>Cine</li>
-</ul>
-<h2>Series Favoritas</h2><ol>
-<li>Breaking Bad</li>
-<li>Stranger Things</li>
-<li>Dark</li>
-<li>The Boys</li>
-<li>One Piece</li>
-</ol></body></html>
-
-
+        <div class="profile-box">
+            <img src="https://media1.tenor.com/m/1rXY1KhLvzAAAAAd/eren.gif" class="profile-img" alt="Emanuel Profile">
+            <div class="badge">ESTUDIANTE PRO</div>
+            <p style="font-size: 0.8rem; color: #636e72; text-align: center; margin-top: 10px;">
+                "El que no arriesga, no gana"
+            </p>
+        </div>
+    </div>
+</body>
+</html>git add index.html
