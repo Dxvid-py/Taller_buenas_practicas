@@ -35,7 +35,24 @@
         border: 1px solid rgba(214, 48, 49, 0.4);
         backdrop-filter: blur(8px);
       }
-      .info-section h1 { font-size: 2.8rem; margin-top: 0; color: var(--accent); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+      /* --- ANIMACIÓN DE OLA / BRILLO EXCLUSIVO --- */
+      .wave-text {
+        background: linear-gradient(to right, #ffffff 20%, #d63031 40%, #d63031 60%, #ffffff 80%);
+        background-size: 200% auto;
+        color: #000;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s linear infinite;
+        display: inline-block;
+      }
+      @keyframes shine {
+        to { background-position: 200% center; }
+      }
+
+      .info-section h1 { font-size: 2.8rem; margin-top: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
       
       .profile-box {
         display: flex;
@@ -43,19 +60,19 @@
         align-items: center;
         border-left: 2px solid #444;
         padding-left: 30px;
-        perspective: 1000px; /* Importante para el efecto 3D del giro */
+        perspective: 1000px;
       }
-      /* --- MONEDA (FLIP CARD) AUTOMÁTICA --- */
+
+      /* --- MONEDA AUTOMÁTICA (5s y LENTA) --- */
       .flip-card {
         width: 220px;
         height: 220px;
         position: relative;
         transform-style: preserve-3d;
-        cursor: pointer;
-        /* Transición lenta para el cambio automático */
-        transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        /* Animación automática cada 3 segundos */
-        animation: flip-auto 3s infinite alternate;
+        /* Transición más lenta de 2 segundos */
+        transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Ciclo de 5 segundos */
+        animation: flip-auto 5s infinite alternate;
       }
       .card-face {
         position: absolute;
@@ -66,25 +83,12 @@
         border: 4px solid var(--accent);
         object-fit: cover;
       }
-      .card-back {
-        transform: rotateY(180deg);
-      }
-      /* Definición de la animación de giro automático */
+      .card-back { transform: rotateY(180deg); }
       @keyframes flip-auto {
-        0% { transform: rotateY(0deg); } /* Lado A (Eren) */
-        100% { transform: rotateY(180deg); } /* Lado B (Emanuel Real) */
+        0%, 40% { transform: rotateY(0deg); }
+        60%, 100% { transform: rotateY(180deg); }
       }
-      /* --------------------------- */
 
-      .badge {
-        background: var(--accent);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        margin-top: 15px;
-        font-weight: bold;
-      }
       h2 {
         font-size: 1.4rem;
         text-transform: uppercase;
@@ -95,31 +99,59 @@
       }
       ul, ol { list-style: none; padding: 0; }
       li { padding: 10px 0; border-bottom: 1px solid #333; font-size: 1.1rem; }
-      li::before { content: "⚔️"; margin-right: 12px; }
+      
+      /* Emojis personalizados para Hobbies */
+      .hobby-futbol::before { content: "⚽"; margin-right: 12px; }
+      .hobby-musica::before { content: "🎧"; margin-right: 12px; }
+      .hobby-boxeo::before { content: "🥊"; margin-right: 12px; }
+      .hobby-gaming::before { content: "🎮"; margin-right: 12px; }
+      .hobby-viajes::before { content: "✈️"; margin-right: 12px; }
+      .hobby-anime::before { content: "🏮"; margin-right: 12px; }
+      
+      /* Emoji para Series */
+      .serie-item::before { content: "🎬"; margin-right: 12px; }
+
+      .badge {
+        background: var(--accent);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="info-section">
-            <h1>Información Personal</h1>
+            <h1 class="wave-text">Información Personal</h1>
             <p style="font-size: 1.2rem;"><strong>Nombre:</strong> Emanuel David Perez Olaya</p>
             <p style="font-size: 1.2rem;"><strong>Semestre:</strong> 2026-1</p>
             
-            <h2>Mis Hobbies</h2>
+            <h2 class="wave-text">Mis Hobbies</h2>
             <ul>
-                <li>Futbol</li><li>Musica</li><li>Boxeo</li><li>Gaming</li><li>Viajes</li><li>Anime</li>
+                <li class="hobby-futbol">Futbol</li>
+                <li class="hobby-musica">Musica</li>
+                <li class="hobby-boxeo">Boxeo</li>
+                <li class="hobby-gaming">Gaming</li>
+                <li class="hobby-viajes">Viajes</li>
+                <li class="hobby-anime">Anime</li>
             </ul>
 
-            <h2>Series Favoritas</h2>
+            <h2 class="wave-text">Series Favoritas</h2>
             <ol>
-                <li>Attack on Titan</li><li>Sabuesos</li><li>Bienvenidos a Derry</li><li>Heroe debil</li><li>The Boys</li>
+                <li class="serie-item">Attack on Titan</li>
+                <li class="serie-item">Sabuesos</li>
+                <li class="serie-item">Bienvenidos a Derry</li>
+                <li class="serie-item">Heroe debil</li>
+                <li class="serie-item">The Boys</li>
             </ol>
         </div>
 
         <div class="profile-box">
             <div class="flip-card">
                 <img src="https://media1.tenor.com/m/1rXY1KhLvzAAAAAd/eren.gif" class="card-face card-front" alt="Eren">
-                
                 <img src="https://i.ibb.co/XZwXR2Nd/Whats-App-Image-2026-03-02-at-8-11-14-PM.jpg" class="card-face card-back" alt="Emanuel Real">
             </div>
             
